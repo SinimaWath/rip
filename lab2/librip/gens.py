@@ -1,3 +1,4 @@
+# coding=utf-8
 import random
 
 
@@ -12,7 +13,16 @@ import random
 
 def field(items, *args):
     assert len(args) > 0
-    # Необходимо реализовать генератор 
+    for item in items:
+        if len(args) == 1:
+            yield item[args[0]]
+
+        if len(args) != 1:
+            res = {}
+            for key in args:
+                res[key] = item[key]
+
+            yield res
 
 
 # Генератор списка случайных чисел
