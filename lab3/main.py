@@ -4,11 +4,11 @@ from lab_python_oop.square import Square
 
 def main():
     rectangle = Rectangle(3, 2, "black")
-    circle = Circle(5, "green")
     square = Square(5, "red")
+    circle = Circle(5, "green")
     print(rectangle)
-    print(circle)
     print(square)
+    print(circle)
 
 if __name__ == "__main__":
     main()
