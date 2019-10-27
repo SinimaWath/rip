@@ -1,12 +1,14 @@
 #!/usr/bin/env python3
+# coding=utf-8
 import json
 import sys
 from librip.ctxmngrs import timer
 from librip.decorators import print_result
 from librip.gens import field, gen_random
 from librip.iterators import Unique as unique
+from librip.gens import field
 
-path = None
+path = 'data_light.json'
 
 # Здесь необходимо в переменную path получить
 # путь до файла, который был передан при запуске
@@ -23,22 +25,22 @@ with open(path) as f:
 
 @print_result
 def f1(arg):
-    raise NotImplemented
-
+    return sorted(unique(list(field(arg, 'job-name')), ignore_case=True))
 
 @print_result
 def f2(arg):
-    raise NotImplemented
+    return list(filter(lambda x: 'программист' in x, arg))
 
 
 @print_result
 def f3(arg):
-    raise NotImplemented
+    return list(map(lambda x: x + ' с опытом Python', arg))
 
 
 @print_result
 def f4(arg):
-    raise NotImplemented
+    sals = list(gen_random(100000, 200000, len(arg)))
+    return list(map(lambda x: x[1] + ' с зарплатой ' + str(sals[x[0]]), enumerate(arg)))
 
 
 with timer():
