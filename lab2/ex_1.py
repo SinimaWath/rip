@@ -11,8 +11,8 @@ goods = [
 ]
 
 for good in field(goods, 'title'):
-    print good
+    print (good)
 
 random = gen_random(1, 5, 4)
-print random
+print (random)
 
